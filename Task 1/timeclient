@@ -1,0 +1,21 @@
+import socket 
+import os
+import sys
+
+addr = input()
+try:
+    socket.inet_aton(addr)   
+except socket.error:
+    print("Incorrect ip")
+    sys.exit(os.EX_DATAERR)
+
+try:
+    sockcl = socket.socket()
+    sockcl.connect((addr, 1303))
+    data = sockcl.recv(1024)
+    print(data)
+    sockcl.close()
+    sys.exit(os.EX_OK)
+except socket.error:
+    print("Unable to connect server")
+    sys.exit(os.EX_UNAVAILABLE)

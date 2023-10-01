@@ -1,0 +1,16 @@
+import socket 
+import os
+import sys
+from time import gmtime, strftime
+
+try:
+    sock = socket.socket()
+    sock.bind (('',1303))
+    while 1==1:
+        sock.listen(1)
+        conn, addr = sock.accept()
+        conn.sendall(strftime("%d.%m.%Y %H:%M", gmtime()).encode('utf-8'))
+        conn.close()
+except Exception as err:
+    print(err)
+    sys.exit(os.EX_SOFTWARE)

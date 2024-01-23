@@ -3,7 +3,7 @@
         ServerAlias www.{{ var_domain }} site.{{ var_domain }}
         ServerAdmin webmaster@{{ var_domain }}
         DocumentRoot /var/www/{{ var_domain }}
-        DirectoryIndex default.html
+        DirectoryIndex html/default.html
         ScriptAlias "/currentweather" "/var/www/{{ var_domain }}/cgi/currentweather"
         ErrorLog ${APACHE_LOG_DIR}/{{ var_domain }}-error.log
         CustomLog ${APACHE_LOG_DIR}/{{ var_domain }}-access.log combined
